@@ -1,252 +1,269 @@
-INGREDIENT = {"Tiny Mushroom":0,"Bluk Berry":1,"Apricorn":2,"Fossil":3,"Big Root":4,"Icy Rock":5,"Honey":6,"Balm Mushroom":7,"Rainbow Matter":8}
-INVERSE_INGREDIENT = {INGREDIENT[k]:k for k in INGREDIENT}
-QUALITY = {"Normal":0,"Good":1,"Very Good":2,"Special":3}
-INVERSE_QUALITY = {QUALITY[k]:k for k in QUALITY}
-POT = {"Normal":3,"Bronze":10,"Silver":15,"Gold":20}
+class ingredient:
+	tinyMushroom="Tiny Mushroom"
+	blukBerry="Bluk Berry"
+	apricorn="Apricorn"
+	fossil="Fossil"
+	bigRoot="Big Root"
+	icyRock="Icy Rock"
+	honey="Honey"
+	balmMushroom="Balm Mushroom"
+	rainbowMatter="Rainbow Matter"
+
+class quality:
+	normal="Normal"
+	good="Good"
+	veryGood="Very Good"
+	special="Special"
+
+class potQuantity:
+	normal=3
+	bronze=10
+	silver=15
+	gold=20
 
 RECIPES = {
 	"Red Stew":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Tiny Mushroom"]:5
+		quality.normal:{
+			ingredient.tinyMushroom:5
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Big Root"]:5
+		quality.special:{
+			ingredient.bigRoot:5
 		}
 	},
 	"Blue Soda":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Bluk Berry"]:5
+		quality.normal:{
+			ingredient.blukBerry:5
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Icy Rock"]:5
+		quality.special:{
+			ingredient.icyRock:5
 		}
 	},
 	"Yellow Curry":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Apricorn"]:5
+		quality.normal:{
+			ingredient.apricorn:5
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Honey"]:5
+		quality.special:{
+			ingredient.honey:5
 		}
 	},
 	"Grey Porridge":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Fossil"]:5
+		quality.normal:{
+			ingredient.fossil:5
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Balm Mushroom"]:5
+		quality.special:{
+			ingredient.balmMushroom:5
 		}
 	},
 	"Mouth-Watering Dip":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Bluk Berry"]:3,
-			INGREDIENT["Tiny Mushroom"]:2
+		quality.normal:{
+			ingredient.blukBerry:3,
+			ingredient.tinyMushroom:2
 		},
-		QUALITY["Good"]:{
-			INGREDIENT["Bluk Berry"]:3,
-			INGREDIENT["Apricorn"]:1,
-			INGREDIENT["Honey"]:1
+		quality.good:{
+			ingredient.blukBerry:3,
+			ingredient.apricorn:1,
+			ingredient.honey:1
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Icy Rock"]:1,
-			INGREDIENT["Bluk Berry"]:2,
-			INGREDIENT["Honey"]:2
+		quality.veryGood:{
+			ingredient.icyRock:1,
+			ingredient.blukBerry:2,
+			ingredient.honey:2
 		}
 	},
 	"Plain Crepe":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Bluk Berry"]:3,
-			INGREDIENT["Fossil"]:2
+		quality.normal:{
+			ingredient.blukBerry:3,
+			ingredient.fossil:2
 		},
-		QUALITY["Good"]:{
-			INGREDIENT["Bluk Berry"]:2,
-			INGREDIENT["Honey"]:1,
-			INGREDIENT["Fossil"]:2
+		quality.good:{
+			ingredient.blukBerry:2,
+			ingredient.honey:1,
+			ingredient.fossil:2
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Bluk Berry"]:1,
-			INGREDIENT["Honey"]:2,
-			INGREDIENT["Balm Mushroom"]:2
+		quality.veryGood:{
+			ingredient.blukBerry:1,
+			ingredient.honey:2,
+			ingredient.balmMushroom:2
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Honey"]:3,
-			INGREDIENT["Balm Mushroom"]:2
+		quality.special:{
+			ingredient.honey:3,
+			ingredient.balmMushroom:2
 		}
 	},
 	"Sludge Soup":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Tiny Mushroom"]:3,
-			INGREDIENT["Balm Mushroom"]:2
+		quality.normal:{
+			ingredient.tinyMushroom:3,
+			ingredient.balmMushroom:2
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Tiny Mushroom"]:2,
-			INGREDIENT["Balm Mushroom"]:3
+		quality.veryGood:{
+			ingredient.tinyMushroom:2,
+			ingredient.balmMushroom:3
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Tiny Mushroom"]:1,
-			INGREDIENT["Balm Mushroom"]:3,
-			INGREDIENT["Rainbow Matter"]:1
+		quality.special:{
+			ingredient.tinyMushroom:1,
+			ingredient.balmMushroom:3,
+			ingredient.rainbowMatter:1
 		}
 	},
 	"Mud Pie":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Tiny Mushroom"]:3,
-			INGREDIENT["Fossil"]:2
+		quality.normal:{
+			ingredient.tinyMushroom:3,
+			ingredient.fossil:2
 		},
-		QUALITY["Good"]:{
-			INGREDIENT["Tiny Mushroom"]:3,
-			INGREDIENT["Icy Rock"]:2
+		quality.good:{
+			ingredient.tinyMushroom:3,
+			ingredient.icyRock:2
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Icy Rock"]:2,
-			INGREDIENT["Honey"]:2,
-			INGREDIENT["Bluk Berry"]:1
+		quality.veryGood:{
+			ingredient.icyRock:2,
+			ingredient.honey:2,
+			ingredient.blukBerry:1
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Honey"]:3,
-			INGREDIENT["Icy Rock"]:2
+		quality.special:{
+			ingredient.honey:3,
+			ingredient.icyRock:2
 		}
 	},
 	"Veggie Smoothie":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Big Root"]:3,
-			INGREDIENT["Balm Mushroom"]:1,
-			INGREDIENT["Apricorn"]:1
+		quality.normal:{
+			ingredient.bigRoot:3,
+			ingredient.balmMushroom:1,
+			ingredient.apricorn:1
 		},
-		QUALITY["Good"]:{
-			INGREDIENT["Apricorn"]:3,
-			INGREDIENT["Tiny Mushroom"]:1,
-			INGREDIENT["Big Root"]:1
+		quality.good:{
+			ingredient.apricorn:3,
+			ingredient.tinyMushroom:1,
+			ingredient.bigRoot:1
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Big Root"]:3,
-			INGREDIENT["Apricorn"]:2
+		quality.veryGood:{
+			ingredient.bigRoot:3,
+			ingredient.apricorn:2
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Big Root"]:3,
-			INGREDIENT["Apricorn"]:1,
-			INGREDIENT["Rainbow Matter"]:1
+		quality.special:{
+			ingredient.bigRoot:3,
+			ingredient.apricorn:1,
+			ingredient.rainbowMatter:1
 		}
 	},
 	"Honey Nectar":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Honey"]:2,
-			INGREDIENT["Bluk Berry"]:2,
-			INGREDIENT["Apricorn"]:1
+		quality.normal:{
+			ingredient.honey:2,
+			ingredient.blukBerry:2,
+			ingredient.apricorn:1
 		},
-		QUALITY["Good"]:{
-			INGREDIENT["Honey"]:3,
-			INGREDIENT["Bluk Berry"]:2
+		quality.good:{
+			ingredient.honey:3,
+			ingredient.blukBerry:2
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Honey"]:3,
-			INGREDIENT["Icy Rock"]:1,
-			INGREDIENT["Bluk Berry"]:1
+		quality.veryGood:{
+			ingredient.honey:3,
+			ingredient.icyRock:1,
+			ingredient.blukBerry:1
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Honey"]:3,
-			INGREDIENT["Bluk Berry"]:1,
-			INGREDIENT["Rainbow Matter"]:1
+		quality.special:{
+			ingredient.honey:3,
+			ingredient.blukBerry:1,
+			ingredient.rainbowMatter:1
 		}
 	},
 	"Brain Food":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Bluk Berry"]:3,
-			INGREDIENT["Apricorn"]:2
+		quality.normal:{
+			ingredient.blukBerry:3,
+			ingredient.apricorn:2
 		},
-		QUALITY["Good"]:{
-			INGREDIENT["Bluk Berry"]:2,
-			INGREDIENT["Apricorn"]:2,
-			INGREDIENT["Honey"]:1
+		quality.good:{
+			ingredient.blukBerry:2,
+			ingredient.apricorn:2,
+			ingredient.honey:1
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Honey"]:2,
-			INGREDIENT["Icy Rock"]:1,
-			INGREDIENT["Apricorn"]:1,
-			INGREDIENT["Bluk Berry"]:1
+		quality.veryGood:{
+			ingredient.honey:2,
+			ingredient.icyRock:1,
+			ingredient.apricorn:1,
+			ingredient.blukBerry:1
 		}
 	},
 	"Stone Soup":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Fossil"]:3,
-			INGREDIENT["Apricorn"]:2
+		quality.normal:{
+			ingredient.fossil:3,
+			ingredient.apricorn:2
 		},
-		QUALITY["Good"]:{
-			INGREDIENT["Apricorn"]:2,
-			INGREDIENT["Fossil"]:2,
-			INGREDIENT["Icy Rock"]:1
+		quality.good:{
+			ingredient.apricorn:2,
+			ingredient.fossil:2,
+			ingredient.icyRock:1
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Fossil"]:1,
-			INGREDIENT["Icy Rock"]:3,
-			INGREDIENT["Apricorn"]:1
+		quality.veryGood:{
+			ingredient.fossil:1,
+			ingredient.icyRock:3,
+			ingredient.apricorn:1
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Icy Rock"]:3,
-			INGREDIENT["Fossil"]:1,
-			INGREDIENT["Rainbow Matter"]:1
+		quality.special:{
+			ingredient.icyRock:3,
+			ingredient.fossil:1,
+			ingredient.rainbowMatter:1
 		}
 	},
 	"Light-as-Air Casserole":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Fossil"]:2,
-			INGREDIENT["Big Root"]:2,
-			INGREDIENT["Icy Rock"]:1
+		quality.normal:{
+			ingredient.fossil:2,
+			ingredient.bigRoot:2,
+			ingredient.icyRock:1
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Icy Rock"]:3,
-			INGREDIENT["Big Root"]:2
+		quality.special:{
+			ingredient.icyRock:3,
+			ingredient.bigRoot:2
 		}
 	},
 	"Hot Pot":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Tiny Mushroom"]:3,
-			INGREDIENT["Bluk Berry"]:2
+		quality.normal:{
+			ingredient.tinyMushroom:3,
+			ingredient.blukBerry:2
 		},
-		QUALITY["Good"]:{
-			INGREDIENT["Honey"]:2,
-			INGREDIENT["Tiny Mushroom"]:3
+		quality.good:{
+			ingredient.honey:2,
+			ingredient.tinyMushroom:3
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Balm Mushroom"]:3,
-			INGREDIENT["Big Root"]:2
+		quality.special:{
+			ingredient.balmMushroom:3,
+			ingredient.bigRoot:2
 		}
 	},
 	"Watt a Risotto":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Honey"]:2,
-			INGREDIENT["Tiny Mushroom"]:2,
-			INGREDIENT["Apricorn"]:1
+		quality.normal:{
+			ingredient.honey:2,
+			ingredient.tinyMushroom:2,
+			ingredient.apricorn:1
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Honey"]:2,
-			INGREDIENT["Balm Mushroom"]:1,
-			INGREDIENT["Big Root"]:1,
-			INGREDIENT["Apricorn"]:1
+		quality.veryGood:{
+			ingredient.honey:2,
+			ingredient.balmMushroom:1,
+			ingredient.bigRoot:1,
+			ingredient.apricorn:1
 		},
-		QUALITY["Special"]:{
-			INGREDIENT["Honey"]:3,
-			INGREDIENT["Balm Mushroom"]:1,
-			INGREDIENT["Big Root"]:1
+		quality.special:{
+			ingredient.honey:3,
+			ingredient.balmMushroom:1,
+			ingredient.bigRoot:1
 		}
 	},
 	"Get Swole Syrup":{
-		QUALITY["Normal"]:{
-			INGREDIENT["Honey"]:1,
-			INGREDIENT["Bluk Berry"]:2,
-			INGREDIENT["Tiny Mushroom"]:2
+		quality.normal:{
+			ingredient.honey:1,
+			ingredient.blukBerry:2,
+			ingredient.tinyMushroom:2
 		},
-		QUALITY["Good"]:{
-			INGREDIENT["Bluk Berry"]:2,
-			INGREDIENT["Tiny Mushroom"]:1,
-			INGREDIENT["Honey"]:1,
-			INGREDIENT["Balm Mushroom"]:1
+		quality.good:{
+			ingredient.blukBerry:2,
+			ingredient.tinyMushroom:1,
+			ingredient.honey:1,
+			ingredient.balmMushroom:1
 		},
-		QUALITY["Very Good"]:{
-			INGREDIENT["Bluk Berry"]:1,
-			INGREDIENT["Tiny Mushroom"]:1,
-			INGREDIENT["Honey"]:2,
-			INGREDIENT["Balm Mushroom"]:1
+		quality.veryGood:{
+			ingredient.blukBerry:1,
+			ingredient.tinyMushroom:1,
+			ingredient.honey:2,
+			ingredient.balmMushroom:1
 		}
 	}
 }

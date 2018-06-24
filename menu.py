@@ -4,9 +4,9 @@ def printRecipes(recipes):
 	for recipe in recipes:
 		print("\t"+recipe+" à la Cube:")
 		for quality in recipes[recipe]:
-			print("\t\t"+constants.INVERSE_QUALITY[quality]+":")
+			print("\t\t"+quality+":")
 			for ingredient in recipes[recipe][quality]:
-				print("\t\t\t"+constants.INVERSE_INGREDIENT[ingredient]+":",recipes[recipe][quality][ingredient])
+				print("\t\t\t"+ingredient+":",recipes[recipe][quality][ingredient])
 		print()
 
 def getPossibleRecipes(userIngredients, quantity):
@@ -16,7 +16,7 @@ def getPossibleRecipes(userIngredients, quantity):
 		for quality in constants.RECIPES[recipe]:
 			canMake = 1
 			for ingredient in constants.RECIPES[recipe][quality]:
-				if userIngredients[constants.INVERSE_INGREDIENT[ingredient]] < constants.RECIPES[recipe][quality][ingredient]*quantity:
+				if userIngredients[ingredient] < constants.RECIPES[recipe][quality][ingredient]*quantity:
 					canMake = 0
 			if canMake == 1:
 				try:
@@ -29,27 +29,27 @@ def getPossibleRecipes(userIngredients, quantity):
 def getIngredientQuantities():
 	userIngredients = {}
 	print("Enter ingredient quantities:")
-	userIngredients["Tiny Mushroom"] = int(input("Tiny Mushrooms: "))
-	userIngredients["Bluk Berry"] = int(input("Bluk Berries: "))
-	userIngredients["Apricorn"] = int(input("Apricorns: "))
-	userIngredients["Fossil"] = int(input("Fossils: "))
-	userIngredients["Big Root"] = int(input("Big Roots: "))
-	userIngredients["Icy Rock"] = int(input("Icy Rocks: "))
-	userIngredients["Honey"] = int(input("Honey: "))
-	userIngredients["Balm Mushroom"] = int(input("Balm Mushrooms: "))
-	userIngredients["Rainbow Matter"] = int(input("Rainbow Matter: "))
+	userIngredients[constants.ingredient.tinyMushroom] = int(input("Tiny Mushrooms: "))
+	userIngredients[constants.ingredient.blukBerry] = int(input("Bluk Berries: "))
+	userIngredients[constants.ingredient.apricorn] = int(input("Apricorns: "))
+	userIngredients[constants.ingredient.fossil] = int(input("Fossils: "))
+	userIngredients[constants.ingredient.bigRoot] = int(input("Big Roots: "))
+	userIngredients[constants.ingredient.icyRock] = int(input("Icy Rocks: "))
+	userIngredients[constants.ingredient.honey] = int(input("Honey: "))
+	userIngredients[constants.ingredient.balmMushroom] = int(input("Balm Mushrooms: "))
+	userIngredients[constants.ingredient.rainbowMatter] = int(input("Rainbow Matter: "))
 	return userIngredients
 
 def main():
 	userIngredients = getIngredientQuantities()
 	print("\nNormal Pot:")
-	printRecipes(getPossibleRecipes(userIngredients, constants.POT["Normal"]))
+	printRecipes(getPossibleRecipes(userIngredients, constants.potQuantity.normal))
 	print("\nBronze Pot:")
-	printRecipes(getPossibleRecipes(userIngredients, constants.POT["Bronze"]))
+	printRecipes(getPossibleRecipes(userIngredients, constants.potQuantity.bronze))
 	print("\nSilver Pot:")
-	printRecipes(getPossibleRecipes(userIngredients, constants.POT["Silver"]))
+	printRecipes(getPossibleRecipes(userIngredients, constants.potQuantity.silver))
 	print("\nGold Pot:")
-	printRecipes(getPossibleRecipes(userIngredients, constants.POT["Gold"]))
+	printRecipes(getPossibleRecipes(userIngredients, constants.potQuantity.gold))
 
 if __name__ == "__main__":
 	main()
